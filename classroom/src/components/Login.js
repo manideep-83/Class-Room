@@ -1,6 +1,8 @@
 import React from 'react'
 import { useContext } from 'react'
+import { ToastContainer,toast } from 'react-toastify';
 import ClassContext from '../context/classcontext';
+
 const Login = () => {
     let context=useContext(ClassContext);
     const {credentials,setCredentials,login}=context;
@@ -11,10 +13,13 @@ const Login = () => {
     }
     const HandleSubmit=async (e)=>{
         e.preventDefault();
-        login();
+        const msg=await login();
+        console.log("msg",msg);
+        toast.info(msg);
        };
   return (
     <>
+        <ToastContainer position='top-right'/>
             <div className='logo  bg-slate-100 rounded-l-lg items-center justify-center flex flex-[0.6] '>
                 <img src='https://cdn.prod.website-files.com/5b69a01ba2e409501de055d1/656a0477a887174722e7fa76_Google%20Classroom%20Workspace.png' alt='login' className='rounded-xl'></img>
             </div>

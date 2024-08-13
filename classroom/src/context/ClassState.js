@@ -31,9 +31,10 @@ const ClassState = (props) => {
               
               console.log(loggedindetails)
               navigate("/main/dashboard");
+              return "Logged in sucessfully";
             }
             else{
-                console.log("wrong details");
+                return "Details are incorrect";
             }
     }
     //fetch user

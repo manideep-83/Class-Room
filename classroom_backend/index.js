@@ -2,11 +2,7 @@ const connectToMango=require('./db')
 const express=require('express')
 const app=express();
 var cors=require('cors');
-app.use(cors(
-    origin:["https://deploy-mern-1whq.vercel.app"],
-    methods:["POST","GET","DELETE"],
-    credentials:true
-));
+app.use(cors());
 
 app.use(express.json());
 app.get('/',(req,res)=>{

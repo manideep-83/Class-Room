@@ -7,10 +7,11 @@ const ClassState = (props) => {
     const [credentials,setCredentials]=useState(initial);
     const [loggedindetails,setDetails]=useState(initial);
     let navigate=useNavigate();
+    const host="https://class-room-api.onrender.com";
     //login api
     const login=async()=>{
         console.log("inside",credentials)
-            const response = await fetch(`http://localhost:5000/auth/validateuser/Login`, {
+            const response = await fetch(`${host}/auth/validateuser/Login`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -38,7 +39,7 @@ const ClassState = (props) => {
     //fetch user
     const fetchuser=async()=>{
         console.log("fetching user",localStorage.getItem('token'));
-        const response = await fetch(`http://localhost:5000/auth/Validateuser/fetchuser`, {
+        const response = await fetch(`${host}/auth/Validateuser/fetchuser`, {
             method: "GET",
             headers: {
               "Auth-token": localStorage.getItem('token')
@@ -53,7 +54,7 @@ const ClassState = (props) => {
     const [classroom,setClassroom]=useState([]);
     //Fetch ClassRooms
     const FetchClassRooms=async ()=>{
-      const response=await fetch(`http://localhost:5000/auth/class/getClassRooms`,{
+      const response=await fetch(`${host}/auth/class/getClassRooms`,{
         method:"GET"
       });
       const json=await response.json();
@@ -62,7 +63,7 @@ const ClassState = (props) => {
     //fetch Available Teachers
     const [teacher,setTeacher]=useState([]);
     const FetchTeachers=async ()=>{
-      const response=await fetch(`http://localhost:5000/auth/Validateuser/getAllTeachers`,{
+      const response=await fetch(`${host}/auth/Validateuser/getAllTeachers`,{
         method:"GET"
       });
       const json=await response.json();
@@ -71,7 +72,7 @@ const ClassState = (props) => {
     //fetch Available Students
     const [students,setStudents]=useState([]);
     const FetchStudents=async ()=>{
-      const response=await fetch(`http://localhost:5000/auth/Validateuser/getAllStudents`,{
+      const response=await fetch(`${host}/auth/Validateuser/getAllStudents`,{
         method:"GET"
       });
       const json=await response.json();
@@ -80,7 +81,7 @@ const ClassState = (props) => {
     //API TO EDIT DETAILS
     const editDetails=async (det)=>{
       const {name}=det;
-      const response=await fetch(`http://localhost:5000/auth/Validateuser/editdetails/${det.id}`,{
+      const response=await fetch(`${host}/auth/Validateuser/editdetails/${det.id}`,{
         method:"POST",
         headers: {
           "Content-Type": "application/json"
@@ -99,7 +100,7 @@ const ClassState = (props) => {
     //Delete the user
     const deleteuser=async (det)=>{
       const {id}=det;
-      const response=await fetch(`http://localhost:5000/auth/Validateuser/delete/${id}`,{
+      const response=await fetch(`${host}/auth/Validateuser/delete/${id}`,{
         method:"DELETE"
       });
       const json=await response.json();
@@ -113,7 +114,7 @@ const ClassState = (props) => {
     }
     //sign up 
     const signup=async (details)=>{
-      const response = await fetch(`http://localhost:5000/auth/validateuser/AddPerson`, {
+      const response = await fetch(`${host}/auth/validateuser/AddPerson`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -128,7 +129,7 @@ const ClassState = (props) => {
     //get name
     const [namee,setNamee]=useState("");
     const getname=async (id)=>{
-      const response=await fetch(`http://localhost:5000/auth/class/getperr/${id}`,{
+      const response=await fetch(`${host}/auth/class/getperr/${id}`,{
         method:"GET",
       });
       const json=await response.json();
@@ -146,7 +147,7 @@ const ClassState = (props) => {
       const {name,schedule}=classrooom;
       console.log(name);
       console.log(schedule);
-      const response=await fetch(`http://localhost:5000/auth/class/AddClassRoom`,{
+      const response=await fetch(`${host}/auth/class/AddClassRoom`,{
         method:"POST",
         headers:{
           "Content-Type": "application/json"
@@ -167,7 +168,7 @@ const ClassState = (props) => {
     //Assign teacher to class
     const assignTeacher=async(classroom,userid)=>{
       console.log("class:",classroom);
-      const response=await fetch(`http://localhost:5000/auth/class/AssignTeacher/${classroom._id}`,{
+      const response=await fetch(`${host}/auth/class/AssignTeacher/${classroom._id}`,{
         method:"POST",
         headers:{
           "Content-Type": "application/json"

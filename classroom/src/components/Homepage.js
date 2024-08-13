@@ -5,7 +5,7 @@ const Homepage = () => {
   const [teco,setTe]=useState(0);
   const [classco,setClassco]=useState(0);
   const getco=async()=>{
-    const response=await fetch(`http://localhost:5000/auth/class/getcount`,{
+    const response=await fetch(`https://class-room-api.onrender.com/auth/class/getcount`,{
       method:"GET"
     });
     const json=await response.json();

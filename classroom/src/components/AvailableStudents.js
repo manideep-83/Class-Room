@@ -7,7 +7,7 @@ const AvailableStudents = () => {
   const {students,FetchStudents}=context;
   useEffect(()=>{
     FetchStudents()
-  },[])
+  },[FetchStudents])
   const storedDetails = JSON.parse(localStorage.getItem('details'));
   return (
     <div className=' rounded-lg bg-white flex flex-col flex-[0.85] h-[80vh] w-[80vw] m-3 p-3 shadow-custom '>

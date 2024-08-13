@@ -8,7 +8,7 @@ const AvailableTeachers = () => {
   const {teacher,FetchTeachers}=context;
   useEffect(()=>{
     FetchTeachers();
-  },[]);
+  },[FetchTeachers]);
   console.log("Teacher",teacher);
 
   return (
@@ -26,9 +26,6 @@ const AvailableTeachers = () => {
             </tr>
           </thead>
           <tbody className='border-2'>
-            {/* {teacher.map((val)=>{
-              return <TableTeacher data={val}/>
-            })} */}
             {teacher.map((val)=>{
               return <TableTeacher data={val} />
             })

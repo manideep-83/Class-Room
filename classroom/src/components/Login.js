@@ -16,7 +16,7 @@ const Login = () => {
   return (
     <>
             <div className='logo  bg-slate-100 rounded-l-lg items-center justify-center flex flex-[0.6] '>
-                <img src='https://cdn.prod.website-files.com/5b69a01ba2e409501de055d1/656a0477a887174722e7fa76_Google%20Classroom%20Workspace.png' className='rounded-xl'></img>
+                <img src='https://cdn.prod.website-files.com/5b69a01ba2e409501de055d1/656a0477a887174722e7fa76_Google%20Classroom%20Workspace.png' alt='login' className='rounded-xl'></img>
             </div>
             <div className='login flex-col flex-[0.4] ml-12 mt-10 bg-slate-100 rounded-r-lg items-center justify-center'>
 

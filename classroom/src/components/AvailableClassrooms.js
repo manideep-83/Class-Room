@@ -7,7 +7,7 @@ const AvailableClassrooms = () => {
   //console.log("classrooms",classroom);
   useEffect(()=>{
   FetchClassRooms();
-  },[])
+  },[FetchClassRooms])
   //console.log(classroom);
   return (
     <div className=' rounded-lg bg-white flex flex-col flex-[0.85] h-[80vh] w-[80vw] m-3 p-3 shadow-custom  '>
